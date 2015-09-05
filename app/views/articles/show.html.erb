@@ -7,3 +7,10 @@
   <strong>Text:</strong>
   <%= @article.text %>
 </p>
+
+<p>
+  <strong>Categories:</strong>
+  <% @article.categories.each do |category| %>
+  	<%= category.name %>
+  <% end %>
+</p>
