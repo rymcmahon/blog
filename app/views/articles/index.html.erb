@@ -19,3 +19,9 @@
     </tr>
   <% end %>
 </table>
+
+<% @categories.each do |category| %>
+  <ul>
+    <li><%= category.name %></li>
+  </ul>
+<% end %>
