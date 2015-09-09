@@ -22,6 +22,6 @@
 
 <% @categories.each do |category| %>
   <ul>
-    <li><%= category.name %></li>
+    <li><%= category.name %><%= @categories.find_by_name(category.name).articles.count %></li>
   </ul>
 <% end %>
