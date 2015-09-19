@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+	before_action :admin_user, only: [:edit, :update, :new, :create, :destroy]
 
 	def index
 		@articles = Article.all
@@ -54,5 +55,12 @@ class ArticlesController < ApplicationController
 		def article_params
 			params.require(:article).permit(:title, :text, :category_ids => [])
 		end
+
+    def admin_user
+    	unless current_user.try(:admin?)
+        flash[:danger] = "You ain't no Admin, fool!"
+      	redirect_to(root_url)
+      end
+    end
 
 end
