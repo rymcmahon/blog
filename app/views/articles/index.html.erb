@@ -1,27 +1,29 @@
-<h1>Listing Articles</h1>
-<%= link_to 'New article', new_article_path %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th colspan="3"></th>
-  </tr>
- 
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
-
-<% @categories.each do |category| %>
-  <ul>
-    <li><%= category.name %><%= @categories.find_by_name(category.name).articles.count %></li>
-  </ul>
-<% end %>
+<div class="row">
+  <div class="col-md-8">
+    <% @articles.order("created_at desc").each do |article| %>
+      <h3><%= link_to article.title, article_path(article) %> </h3>
+      <h5><%= article.created_at.strftime("%B %e, %Y") %></h5>
+      <p><%= article.text.truncate(200, separator: ' ') %></p>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">About Me</div>
+      <div class="panel-body">
+        I am a husband, dad, and a software engineer. When I'm not coding or blogging about it I love cooking with my wife, playing Legos with my son, and watching hockey or football.
+      </div>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item active">Blog Categories</li>
+      <% @categories.each do |category| %>
+      <li class="list-group-item">
+        <span class="badge">
+          <%= @categories.find_by_name(category.name).articles.count %>
+        </span>
+        <%= category.name %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+       

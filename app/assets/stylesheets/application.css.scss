@@ -1,0 +1,50 @@
+@import "bootstrap-sprockets";
+@import "bootswatch/journal/variables";
+@import "bootstrap";
+@import "bootswatch/journal/bootswatch";
+
+body {
+	background-color: #f9f9f9;
+	font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+}
+
+p {
+	color: #000;
+	font-size: 18px;
+}
+
+header h1, h4 {
+	text-align: center;
+}
+
+.col-md-8 h3 a {
+	color: #000000;
+}
+
+.col-md-8 h5 {
+	color: #999999;
+}
+
+.list-group-item.active {
+	color: #777;
+  background-color: #f5f5f5;
+  border-color: #DDD;
+}
+
+.list-group-item.active:hover {
+	color: #777;
+  background-color: #f5f5f5;
+  border-color: #DDD;
+}
+
+@media (min-width: 768px) {
+  .navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+  }
+
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
+}

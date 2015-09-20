@@ -32,6 +32,10 @@
       <%= category.name %>
     </div>
     <% end %>
+
+    <%= link_to 'Destroy', article_path,
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
   </p>
   <p>
     <%= f.submit %>
