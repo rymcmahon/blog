@@ -40,6 +40,14 @@ header h1, h4 {
   border-color: #DDD;
 }
 
+.text-input {
+  height: 300px !important;
+}
+
+.checkbox.col-sm-10.col-sm-offset-2 {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
 @media (min-width: 768px) {
   .navbar .navbar-nav {
     display: inline-block;

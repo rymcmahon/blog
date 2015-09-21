@@ -1,38 +1,44 @@
-<h1>New Article</h1>
-
-<%= form_for :article, url: articles_path do |f| %>
+<%= form_for :article, url: articles_path, html: {class: "form-horizontal"} do |f| %>
   <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2>
+    <div id="error_explanation" class="alert alert-dismissible alert-danger">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <p><strong>
         <%= pluralize(@article.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
+        this article from being saved:</strong>
+      </p>
       <ul>
         <% @article.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+          <li><h5><%= msg %></h5></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
- 
-  <p>
-    <% @categories.each do |category| %>
-    <div>
-      <%= check_box_tag "article[category_ids][]", category.id, @article.categories.include?(category) %>
-      <%= category.name %>
+  <fieldset>
+    <legend>Create New Article</legend>
+      <div class="form-group">
+        <%= f.label :title, class: "col-sm-2" %>
+        <div class="col-sm-8">
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :text, class: "col-sm-2" %>
+      <div class="col-sm-8">
+        <%= f.text_area :text, class: "form-control text-input" %>
+      </div>
     </div>
-    <% end %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+    <div class="form-inline"> 
+      <div class="checkbox col-sm-10 col-sm-offset-2">
+        <% @categories.each do |category| %>
+          <%= check_box_tag "article[category_ids][]", category.id, @article.categories.include?(category) %>
+          <%= category.name %>
+        <% end %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-10 col-sm-offset-2">
+        <%= f.submit "Add Article", class: "btn btn-default" %>
+      </div>
+    </div>
+</fieldset>
 <% end %>
