@@ -1,20 +1,36 @@
-<% if logged_in? && current_user.admin? %>
-	<%= link_to 'Edit', edit_article_path(:id => @article.id ) %>
-<% end %>
+	<% if logged_in? && current_user.admin? %>
+		<%= link_to 'Edit', edit_article_path(:id => @article.id ) %>
+	<% end %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+    <%= markdown(@article.title) %>
+    <h5><%= @article.created_at.strftime("%B %e, %Y") %></h5>
+	 	<%= markdown(@article.text) %>
+ 		<% @article.categories.each do |category| %>
+	  <span class="label label-info">
+	  		<%= category.name %>
+	  </span>
+	  	<% end %>
+<!-- <div class="container">
+  
 
-<p>
-  <strong>Categories:</strong>
-  <% @article.categories.each do |category| %>
-  	<%= category.name %>
-  <% end %>
-</p>
+
+
+	  <%= markdown(@article.title) %>
+	 
+	
+	  <%= markdown(@article.text) %>
+
+	  	<% @article.categories.each do |category| %>
+	  <span class="label label-info">
+	  		<%= category.name %>
+	  </span>
+	  	<% end %>
+
+		<!-- <ul class="nav nav-pills">
+			<% @article.categories.each do |category| %>
+	  <li class="active"><a href="#">
+	  	<%= category.name %>
+	  <% end %></a></li>
+		</ul> -->
+	  
+</div> -->
