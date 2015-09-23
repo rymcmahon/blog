@@ -49,6 +49,19 @@ header h1, h4 {
   font-size: 16px;
 }
 
+.article-wrapper {
+  padding: 0 5%;
+}
+
+.article-label {
+  font-size: 80%;
+  padding-left: 1.6em;
+  padding-right: 1.6em;
+  margin: 0 2px;
+  text-transform: uppercase;
+  letter-spacing: .75px;
+}
+
 @media (min-width: 768px) {
   .navbar .navbar-nav {
     display: inline-block;

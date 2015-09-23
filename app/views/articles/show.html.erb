@@ -1,36 +1,14 @@
+<div class="article-wrapper">
 	<% if logged_in? && current_user.admin? %>
-		<%= link_to 'Edit', edit_article_path(:id => @article.id ) %>
+		<%= link_to 'Edit Article', edit_article_path(:id => @article.id ), class: "btn btn-default" %>
 	<% end %>
 
-    <%= markdown(@article.title) %>
-    <h5><%= @article.created_at.strftime("%B %e, %Y") %></h5>
-	 	<%= markdown(@article.text) %>
- 		<% @article.categories.each do |category| %>
-	  <span class="label label-info">
-	  		<%= category.name %>
-	  </span>
-	  	<% end %>
-<!-- <div class="container">
-  
-
-
-
-	  <%= markdown(@article.title) %>
-	 
-	
-	  <%= markdown(@article.text) %>
-
-	  	<% @article.categories.each do |category| %>
-	  <span class="label label-info">
-	  		<%= category.name %>
-	  </span>
-	  	<% end %>
-
-		<!-- <ul class="nav nav-pills">
-			<% @article.categories.each do |category| %>
-	  <li class="active"><a href="#">
-	  	<%= category.name %>
-	  <% end %></a></li>
-		</ul> -->
-	  
-</div> -->
+	<%= markdown(@article.title) %>
+	<h5><%= @article.created_at.strftime("%B %e, %Y") %></h5>
+	<%= markdown(@article.text) %>
+	<% @article.categories.each do |category| %>
+		<span class="label label-info article-label">
+		<%= category.name %>
+		</span>
+	<% end %>
+</div>

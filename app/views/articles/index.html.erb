@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-8">
     <% @articles.order("created_at desc").each do |article| %>
-      <h3><%= link_to article.title, article_path(article) %> </h3>
+      <h3><%= link_to markdown(article.title), article_path(article) %> </h3>
       <h5><%= article.created_at.strftime("%B %e, %Y") %></h5>
-      <p><%= article.text.truncate(200, separator: ' ') %></p>
+      <p><%= markdown(article.text.truncate(200, separator: ' ')) %></p>
     <% end %>
   </div>
   <div class="col-md-4">
