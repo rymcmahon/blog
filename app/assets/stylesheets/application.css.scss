@@ -13,7 +13,7 @@ p {
 	font-size: 18px;
 }
 
-header h1, h4 {
+#header-brand {
 	text-align: center;
 }
 
@@ -60,6 +60,16 @@ header h1, h4 {
   margin: 0 2px;
   text-transform: uppercase;
   letter-spacing: .75px;
+}
+
+h2.text-info {
+  margin: 35px 0 50px;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+}
+
+.content-wrapper {
+    padding: 0 5.154639175258%;
 }
 
 @media (min-width: 768px) {
