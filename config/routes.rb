@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
- 
-  # get 'sessions/new'
-
-  # get 'users/new'
 
   resources :articles
   root 'articles#index'
@@ -13,5 +9,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  get '/pages/:page' => 'pages#show'
+  resources :pages, only: [:show]
+
+
 end
