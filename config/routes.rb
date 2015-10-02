@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :articles
   root 'articles#index'
-  
+
+  resources :articles
+  resources :categories, only: [:show]
+
   resources :users
 
   get 'login' => 'sessions#new'
@@ -10,6 +12,4 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :pages, only: [:show]
-
-
 end

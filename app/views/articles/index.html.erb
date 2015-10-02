@@ -14,15 +14,15 @@
       </div>
     </div>
     <div class="list-group">
-      <a href="#" class="list-group-item active">Blog Categories</a>
+      <li class="list-group-item active">Blog Categories</li>
       <% @categories.each do |category| %>
-      <a class="list-group-item">
-        <span class="badge">
-          <%= @categories.find_by_name(category.name).articles.count %>
-        </span>
-        <%= category.name %>
+        <%= link_to category_path(:id => category.id), :class => "list-group-item" do %>
+          <span class="badge">
+            <%= @categories.find_by_name(category.name).articles.count %>
+          </span>
+          <%= category.name %>
         <% end %>
-      </a>
+      <% end %>
     </div>
   </div>
 </div>
