@@ -1,7 +1,9 @@
-<% @category.articles.each do |article| %>
-		<span class="">
-		<%= markdown(article.title) %>
-	<h5><%= article.created_at.strftime("%B %e, %Y") %></h5>
-	<%= markdown(article.text) %>
-		</span>
-<% end %>
+<div class="article-wrapper">
+	<% @category.articles.each do |article| %>
+			<span class="">
+			<%= markdown(article.title) %>
+		<h5 class="date-title"><%= article.created_at.strftime("%B %e, %Y") %></h5>
+		<%= markdown(article.text) %>
+			</span>
+	<% end %>
+</div>

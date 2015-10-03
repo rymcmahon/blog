@@ -1,15 +1,15 @@
 <div class="row">
   <div class="col-md-8">
     <% @articles.order("created_at desc").each do |article| %>
-      <h3><%= link_to markdown(article.title), article_path(article) %> </h3>
-      <h5><%= article.created_at.strftime("%B %e, %Y") %></h5>
-      <p><%= markdown(article.text.truncate(200, separator: ' ')) %></p>
+      <%= link_to markdown(article.title), article_path(article) %>
+      <h5 class="date-title"><%= article.created_at.strftime("%B %e, %Y") %></h5>
+      <%= markdown(article.text.truncate(200, separator: ' ')) %>
     <% end %>
   </div>
   <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">About Me</div>
-      <div class="panel-body">
+      <div class="panel-body panel-text">
         I am a husband, dad, and a software engineer. When I'm not coding or blogging about it I love cooking with my wife, playing Legos with my son, and watching hockey or football.
       </div>
     </div>

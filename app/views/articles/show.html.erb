@@ -4,7 +4,7 @@
 	<% end %>
 
 	<%= markdown(@article.title) %>
-	<h5><%= @article.created_at.strftime("%B %e, %Y") %></h5>
+	<h5 class="date-title"><%= @article.created_at.strftime("%B %e, %Y") %></h5>
 	<%= markdown(@article.text) %>
 	<% @article.categories.each do |category| %>
 		<span class="label label-info article-label">
