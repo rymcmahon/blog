@@ -28,26 +28,36 @@
           <li><%= link_to "Blog", articles_path %></li>
           <li><%= link_to "Projects", page_path("projects")%></li>
           <li><%= link_to "Résumé", page_path("resume")%></li>
-          <% if logged_in? %>
-          <li>  <%= link_to "Log out", logout_path, method: "delete" %> </li>
-          <% else %>
-          <li>  <%= link_to "Log in", login_path %> </li>
-          <% end %>
-          <% if logged_in? && current_user.admin? %>
-          <li> <%= link_to "Settings", edit_user_path(current_user) %> </li>
-          <li> <%= link_to 'New Article', new_article_path %> </li>
-          <% end %>
         </ul>
       </div>
     </div>
   </nav>
   <%= yield %>
-  
   </div>
   <footer>
     <div class="container-fluid">
-      Footer content here 
+      <div class="container">
+      <div class="row">
+        <div class="col-md-6 footer-center"><%= fa_icon "copyright", class: "fa-1x" %><h4 class="inline-header"> <%= Time.now.strftime("%Y") %> Ryan McMahon </h4></div>
+        <div class="col-md-6"> 
+          <ul class="nav nav-pills">
+            <% if logged_in? %>
+              <li role="presentation"><%= link_to "Log out", logout_path, method: "delete" %> </li>
+            <% else %>
+              <li role="presentation"><%= link_to login_path do %> 
+                <i class="fa fa-key"></i>
+              <% end %>
+              </li>
+            <% end %>
+            <% if logged_in? && current_user.admin? %>
+              <li role="presentation"><%= link_to "Settings", edit_user_path(current_user) %> </li>
+              <li role="presentation"><%= link_to 'New Article', new_article_path %> </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
   </footer>
 </body>
 </html>

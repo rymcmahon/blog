@@ -30,6 +30,9 @@ gem 'figaro'
 #bootstrap template
 gem 'bootswatch-rails'
 
+#font awesome
+gem 'font-awesome-rails'
+
 #redcarpet for markdown
 gem 'redcarpet'
 

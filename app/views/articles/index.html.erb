@@ -1,30 +1,42 @@
-<div class="row">
-  <div class="col-md-8">
-    <% @articles.order("created_at desc").each do |article| %>
-      <%= link_to markdown(article.title), article_path(article) %>
-      <h5 class="date-title"><%= article.created_at.strftime("%B %e, %Y") %></h5>
-      <%= markdown(article.text.truncate(200, separator: ' ')) %>
-    <% end %>
-  </div>
-  <div class="col-md-4">
-    <div class="panel panel-default">
-      <div class="panel-heading">About Me</div>
-      <div class="panel-body panel-text">
-        I am a husband, dad, and a software engineer. When I'm not coding or blogging about it I love cooking with my wife, playing Legos with my son, and watching hockey or football.
-      </div>
-    </div>
-    <div class="list-group">
-      <li class="list-group-item active">Blog Categories</li>
-      <% @categories.each do |category| %>
-        <%= link_to category_path(:id => category.id), :class => "list-group-item" do %>
-          <span class="badge">
-            <%= @categories.find_by_name(category.name).articles.count %>
-          </span>
-          <%= category.name %>
-        <% end %>
+<div class="index-wrapper">
+  <div class="row">
+    <div class="col-md-8">
+      <% @articles.order("created_at desc").each do |article| %>
+        <%= link_to markdown(article.title), article_path(article) %>
+        <h5 class="date-title"><%= article.created_at.strftime("%B %e, %Y") %></h5>
+        <%= markdown(article.text.truncate(200, separator: ' ')) %>
       <% end %>
     </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">About Me</div>
+        <div class="panel-body panel-text">
+          I am a husband, dad, and a software engineer. When I'm not coding or blogging about it I love cooking with my wife, playing Legos with my son, and watching hockey or football.<br></br>
+          This blog is built with Ruby on Rails and has a custom authorization and authentication system for updating posts, creating posts, and adding categories.
+        </div>
+      </div>
+      <div class="list-group">
+        <li class="list-group-item active">Blog Categories</li>
+        <% @categories.each do |category| %>
+          <%= link_to category_path(:id => category.id), :class => "list-group-item" do %>
+            <span class="badge">
+              <%= @categories.find_by_name(category.name).articles.count %>
+            </span>
+            <%= category.name %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Elsewhere</div>
+          <div class="panel-body icon-center">
+            <a href="https://twitter.com/ryanmcmahon716"><%= fa_icon "twitter", class: "fa-2x" %></a>
+            <a href="https://github.com/rymcmahon?tab=repositories"><%= fa_icon "github", class: "fa-2x" %></a>
+            <a href=""mailto:rymcmahon716@gmail.com""><%= fa_icon "envelope", class: "fa-2x" %></a>
+            <a href="https://www.linkedin.com/pub/ryan-mcmahon/1a/499/783"><%= fa_icon "linkedin", class: "fa-2x" %></a>
+            <a href="https://www.facebook.com/ryan.mcmahon.5268"><%= fa_icon "facebook", class: "fa-2x" %></a>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-      
+</div>      
        
