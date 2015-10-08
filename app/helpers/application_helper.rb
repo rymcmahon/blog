@@ -21,6 +21,10 @@ module ApplicationHelper
 	  markdown_to_html.render(text).html_safe
 	end
 
+	def title(page_title)
+  	content_for(:title) { page_title }
+	end
+
 end
 	
 
