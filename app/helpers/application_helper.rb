@@ -25,6 +25,9 @@ module ApplicationHelper
   	content_for(:title) { page_title }
 	end
 
+	def meta_description(seo)
+  	content_for(:meta_description) { seo }
+	end
 end
 	
 

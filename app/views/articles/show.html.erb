@@ -1,4 +1,6 @@
 <% title strip_tags(markdown(@article.title.to_s)) %>
+<% meta_description strip_tags(markdown(@article.text.truncate(200, separator: ' '))) %>
+
 
 <div class="article-wrapper">
 	<% if logged_in? && current_user.admin? %>

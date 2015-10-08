@@ -10,6 +10,11 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <% if yield(:meta_description).present? %>
+    <meta name="description" content="<%= yield(:meta_description) %>" />
+  <% else %>
+    <meta name="description" content="Ryan McMahon's blog about Software Engineering, Web Development, and Ruby on Rails" />
+  <% end %>
   <%= favicon_link_tag 'blog-favicon.ico' %>
 </head>
 <body>
