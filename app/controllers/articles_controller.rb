@@ -9,7 +9,6 @@ class ArticlesController < ApplicationController
 	def show
 		@article = Article.find(params[:id])
 		@categories = Category.all
-		@category = Category.find(params[:id])
 	end
 
 	def new
