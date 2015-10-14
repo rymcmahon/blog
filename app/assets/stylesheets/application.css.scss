@@ -67,11 +67,11 @@ p {
 
 .article-label {
   font-size: 80%;
-  padding-left: 1.6em;
-  padding-right: 1.6em;
-  margin: 0 2px;
+  margin: 2px 2px;
   text-transform: uppercase;
   letter-spacing: .75px;
+  display: inline-block;
+  padding: 0.5em 1em;
 }
 
 h2.text-info {
@@ -123,11 +123,19 @@ footer {
 
 @media (max-width: 768px) {
   .article-wrapper {
-    padding: 0 5%;
+    padding: 0 2.5%;
   }
 
   .article-wrapper p {
     font-size: 110%;
+  }
+
+  .index-wrapper {
+    padding: 0 2.5%;
+  }
+
+  .resume-wrapper {
+    padding: 0 2.5%;
   }
 }
 
@@ -143,7 +151,11 @@ footer {
   }
 
   .article-wrapper {
-    padding: 0 15%;
+    padding: 2% 15%;
+  }
+
+  .article-wrapper p {
+    margin: 20px 0;
   }
 
   .projects-wrapper {

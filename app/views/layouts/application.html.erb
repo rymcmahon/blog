@@ -16,11 +16,12 @@
     <meta name="description" content="Ryan McMahon's blog about Software Engineering, Web Development, and Ruby on Rails" />
   <% end %>
   <%= favicon_link_tag 'blog-favicon.ico' %>
+  <%= favicon_link_tag 'blog-favicon.png', rel: 'apple-touch-icon', type: 'image/png' %>
 </head>
 <body>
   <div class="container">
     <header>
-      <%= image_tag 'crud-life-225.png', class: "header-brand" %>
+      <a href="/"><%= image_tag 'crud-life-225.png', class: "header-brand" %></a>
     </header>
     <nav class="navbar navbar-inverse">
     <div class="container-fluid">
