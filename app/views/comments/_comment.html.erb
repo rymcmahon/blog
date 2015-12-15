@@ -1,0 +1,16 @@
+<p>
+  <%= comment.name %>
+</p>
+
+<p>
+  <%= comment.created_at.strftime("%b %d, %Y %I:%M %p") %> 
+</p>
+ 
+<p>
+	<%= comment.body %>
+</p>
+<% if current_user.try(:admin?) %>
+	<p>
+		<%= link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+	</p>
+<% end %>
