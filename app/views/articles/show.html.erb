@@ -15,4 +15,34 @@
 		<%= category.name %>
 		</span>
 	<% end %>
+	<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+  <p>
+    <strong>Name:</strong>
+    <%= comment.name %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+	<h2>Add a comment:</h2>
+		<%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 </div>

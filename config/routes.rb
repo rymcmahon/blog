@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   root 'articles#index'
 
-  resources :articles
+  resources :articles do
+  	resources :comments
+  end
+
   resources :categories, only: [:show]
 
   resources :users
