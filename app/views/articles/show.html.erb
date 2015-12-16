@@ -6,7 +6,9 @@
 	<% if logged_in? && current_user.admin? %>
 		<%= link_to 'Edit Article', edit_article_path(:id => @article.id ), class: "btn btn-default" %>
 	<% end %>
-	
+	<% flash.each do |key, value| %>
+     <div class="alert alert-dismissible alert-<%= key %>"><%= value %></div>
+  <% end %>
 	<%= markdown(@article.title) %>
 	<h5 class="date-title"><%= @article.created_at.strftime("%B %e, %Y") %></h5>
 	<%= markdown(@article.text) %>

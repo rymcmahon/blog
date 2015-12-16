@@ -2,8 +2,14 @@ class CommentsController < ApplicationController
 
 	def create
 		@article = Article.find(params[:article_id])
-		@comment = @article.comments.create(comments_params)
-		redirect_to article_path(@article)
+		@comment = @article.comments.new(comments_params)
+		if @comment.save
+			flash[:success] = "Thanks for commenting!"
+			redirect_to article_path(@article)
+		else
+			flash[:danger] = "Name and comment fields must be filled in to post a comment."
+			redirect_to article_path(@article)
+		end
 	end
 
 	def destroy
