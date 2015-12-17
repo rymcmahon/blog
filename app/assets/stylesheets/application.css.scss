@@ -123,6 +123,14 @@ footer {
   color: #f5f5f5;
 }
 
+legend {
+  margin-top: 20px;
+}
+
+.grey-date {
+  color: #999999;
+}
+
 @media (max-width: 768px) {
   .article-wrapper {
     padding: 0 2.5%;
@@ -138,6 +146,10 @@ footer {
 
   .resume-wrapper {
     padding: 0 2.5%;
+  }
+
+  .comment-button {
+    margin-top: 10px;
   }
 }
 
