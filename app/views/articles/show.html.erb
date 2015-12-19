@@ -19,7 +19,7 @@
 		<%= category.name %>
 		</span>
 	<% end %>
-	<% if @comments.count > 0 %>
+	<% if @comments > 0 %>
 	<legend>What Readers are Saying</legend>
 	<%= render @article.comments %>
 	<% end %>

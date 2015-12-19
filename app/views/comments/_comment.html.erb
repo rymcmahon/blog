@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <h4><%= comment.name %></h4>
-    <h5 class="grey-date"><%= comment.created_at.strftime("%b %d, %Y %-I:%M %P") %></h5>
+    <h5 class="grey-date"><%= comment.created_at.strftime("%b %d, %Y") %></h5>
     <p><%= comment.body %></p>
   </div>
 	<% if current_user.try(:admin?) %>
