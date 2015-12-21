@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
 		@article = Article.find(params[:article_id])
 		@comment = @article.comments.new(comments_params)
 		if @comment.save
+			CommentMailer.comment_notification(@comment, @article).deliver
 			flash[:success] = "Thanks for commenting!"
 			redirect_to article_path(@article)
 		else
