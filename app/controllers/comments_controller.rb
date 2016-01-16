@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 			flash[:success] = "Thanks for commenting!"
 			redirect_to article_path(@article)
 		else
-			flash[:danger] = "Name and comment fields must be filled in to post a comment."
+			flash[:danger] = "You must provide a name, valid email address, and a comment."
 			redirect_to article_path(@article)
 		end
 	end
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
 
 	private
 		def comments_params
-			params.require(:comment).permit(:name, :email, :body)
+			params.require(:comment).permit(:name, :email, :body, :subtitle)
 		end
 
 end

@@ -10,9 +10,10 @@
   	<div class="form-group">
     	<%= f.label :email, class: "col-md-1" %>
     	<div class="col-md-5">
-    		<%= f.text_field :email, class: "form-control", placeholder: "(Optional)" %>
+    		<%= f.text_field :email, class: "form-control", placeholder: "(Required, but never published)" %>
   		</div>
     </div>
+    <%= f.invisible_captcha :subtitle %>
     <div class="form-group">
     	<%= f.label :body, "Comment", class: "col-md-1" %>
     	<div class="col-md-10">
