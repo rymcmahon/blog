@@ -10,6 +10,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,900,300,700" rel="stylesheet">
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel="stylesheet">
   <% if yield(:meta_description).present? %>
     <meta name="description" content="<%= yield(:meta_description) %>" />
   <% else %>
@@ -18,58 +20,158 @@
   <%= favicon_link_tag 'blog-favicon.ico' %>
   <%= favicon_link_tag 'blog-favicon.png', rel: 'apple-touch-icon', type: 'image/png' %>
 </head>
-<body>
-  <div class="container">
-    <header>
-      <a href="/"><%= image_tag 'crud-life-225.png', class: "header-brand" %></a>
-    </header>
-    <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><%= link_to "Blog", articles_path %></li>
-          <li><%= link_to "Projects", page_path("projects")%></li>
-          <li><%= link_to "Résumé", page_path("resume")%></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <%= yield %>
-  </div>
-  <footer>
-    <div class="container-fluid">
+<body id="top">
+  <header>
+  <div class="navbar">
+    <div class="navbar-header">
       <div class="container">
-      <div class="row">
-        <div class="col-md-6 footer-center"><%= fa_icon "copyright", class: "fa-1x" %><h4 class="inline-header"> <%= Time.now.strftime("%Y") %> Ryan McMahon </h4></div>
-        <div class="col-md-6"> 
-          <ul class="nav nav-pills">
-            <% if logged_in? %>
-              <li role="presentation"><%= link_to "Log out", logout_path, method: "delete" %> </li>
-            <% else %>
-              <li role="presentation"><%= link_to login_path do %> 
-                <i class="fa fa-key"></i>
-              <% end %>
-              </li>
-            <% end %>
-            <% if logged_in? && current_user.admin? %>
-              <li role="presentation"><%= link_to "Settings", edit_user_path(current_user) %> </li>
-              <li role="presentation"><%= link_to 'New Article', new_article_path %> </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  </footer>
+        <ul class="info pull-left">
+          <li><a href="#"><i class="icon-mail-1 contact"></i> info@reen.com</a></li>
+          <li><i class="icon-mobile contact"></i> +00 (123) 456 78 90</li>
+        </ul><!-- /.info -->
+        <ul class="social pull-right">
+          <li><a href="#"><i class="icon-s-facebook"></i></a></li>
+          <li><a href="#"><i class="icon-s-gplus"></i></a></li>
+          <li><a href="#"><i class="icon-s-twitter"></i></a></li>
+          <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
+          <li><a href="#"><i class="icon-s-behance"></i></a></li>
+          <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
+        </ul><!-- /.social -->
+        <a class="navbar-brand" href="#"><img src="assets/images/logo.svg" class="logo" alt=""></a>
+        <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class='icon-menu-1'></i></a>
+      </div><!-- /.container -->
+    </div><!-- /.navbar-header -->
+    <div class="yamm">
+      <div class="navbar-collapse collapse">
+        <div class="container">
+          <a class="navbar-brand scroll-to" href="#top"><img src="assets/images/logo.svg" class="logo" alt=""></a>
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="#who-we-are" class="scroll-to" data-anchor-offset="0">Who we are</a></li>
+            <li><a href="#latest-works" class="scroll-to" data-anchor-offset="0">Latest works</a></li>
+            <li><a href="#get-in-touch" class="scroll-to" data-anchor-offset="0">Get in touch</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle js-activated" style="padding-right: 15px;">Features <i class="icon-down-open"></i></a>
+              <ul class="dropdown-menu" style="right: auto;">
+                <li><a href="slider-carousel.html">Slider/Carousel</a></li>
+                <li><a href="modal.html">Modal</a></li>
+                <li><a href="tab.html">Tab</a></li>
+                <li><a href="accordion.html">Accordion</a></li>
+                <li><a href="isotope.html">Isotope</a></li>
+                <li><a href="styles.html">Styles</a></li>
+                <li><a href="font-icons.html">Font Icons</a></li>
+                <li><a href="backgrounds.html">Backgrounds</a></li>
+                <li class="dropdown-submenu">
+                  <a href="#">Colors</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="changecolor green" title="Green color">Green</a></li>
+                    <li><a class="changecolor blue" title="Blue color">Blue</a></li>
+                    <li><a class="changecolor red" title="Red color">Red</a></li>
+                    <li><a class="changecolor pink" title="Pink color">Pink</a></li>
+                    <li><a class="changecolor purple" title="Purple color">Purple</a></li>
+                    <li><a class="changecolor orange" title="Orange color">Orange</a></li>
+                    <li><a class="changecolor navy" title="Navy color">Navy</a></li>
+                    <li><a class="changecolor gray" title="Gray color">Gray</a></li>
+                  </ul><!-- /.dropdown-menu -->
+                </li><!-- /.dropdown-submenu -->
+                <li class="dropdown-submenu">
+                  <a href="#">Submenu Levels</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Second Level</a></li>
+                    <li><a href="#">Second Level</a></li>
+                    <li class="dropdown-submenu">
+                      <a href="#">More</a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Third Level</a></li>
+                        <li><a href="#">Third Level</a></li>
+                      </ul><!-- /.dropdown-menu -->
+                    </li><!-- /.dropdown-submenu -->
+                  </ul><!-- /.dropdown-menu -->
+                </li><!-- /.dropdown-submenu -->
+              </ul><!-- /.dropdown-menu -->
+            </li><!-- /.dropdown -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle js-activated" style="padding-right: 15px;">One Page <i class="icon-down-open"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="one-page1.html">Product Style</a></li>
+                <li><a href="one-page2.html">Service Style</a></li>
+                <li><a href="one-page3.html">Agency Style</a></li>
+                <li><a href="one-page4.html">Portfolio Style</a></li>
+                <li><a href="one-page5.html">Showcase Style</a></li>
+                <li><a href="index.html">Multi Page</a></li>
+              </ul><!-- /.dropdown-menu -->
+            </li><!-- /.dropdown -->
+          </ul><!-- /.nav -->
+        </div><!-- /.container -->
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.yamm -->
+  </div><!-- /.navbar -->
+</header>
+<%= yield %>
+<footer class="dark-bg">
+	<div class="container inner">
+		<div class="row">
+			<div class="col-md-3 col-sm-6 inner">
+				<h4>Who we are</h4>
+				<a href="#top" class="scroll-to"><img class="logo img-intext" src="assets/images/logo-white.svg" alt=""></a>
+				<p>Magnis modipsae voloratati andigen daepeditem quiate re porem que aut labor. Laceaque eictemperum quiae sitiorem rest non restibusaes maio es dem tumquam.</p>
+				<a href="#who-we-are" class="txt-btn scroll-to">More about us</a>
+			</div><!-- /.col -->
+			<div class="col-md-3 col-sm-6 inner">
+				<h4>Latest works</h4>
+				<div class="row thumbs gap-xs">
+					<div class="col-xs-6 thumb">
+						<figure class="icon-overlay icn-link">
+							<a href="#modal-work01" data-toggle="modal"><img src="assets/images/art/work02.jpg" alt=""></a>
+						</figure>
+					</div><!-- /.thumb -->
+					<div class="col-xs-6 thumb">
+						<figure class="icon-overlay icn-link">
+							<a href="#modal-work01" data-toggle="modal"><img src="assets/images/art/work03.jpg" alt=""></a>
+						</figure>
+					</div><!-- /.thumb -->
+					<div class="col-xs-6 thumb">
+						<figure class="icon-overlay icn-link">
+							<a href="#modal-work01" data-toggle="modal"><img src="assets/images/art/work07.jpg" alt=""></a>
+						</figure>
+					</div><!-- /.thumb -->
+					<div class="col-xs-6 thumb">
+						<figure class="icon-overlay icn-link">
+							<a href="#modal-work01" data-toggle="modal"><img src="assets/images/art/work01.jpg" alt=""></a>
+						</figure>
+					</div><!-- /.thumb -->
+				</div><!-- /.row -->
+			</div><!-- /.col -->
+			<div class="col-md-3 col-sm-6 inner">
+				<h4>Get In Touch</h4>
+				<p>Doloreiur quia commolu ptatemp dolupta oreprerum tibusam eumenis et consent accullignis dentibea autem inisita.</p>
+				<ul class="contacts">
+					<li><i class="icon-location contact"></i> 84 Street, City, State 24813</li>
+					<li><i class="icon-mobile contact"></i> +00 (123) 456 78 90</li>
+					<li><a href="#"><i class="icon-mail-1 contact"></i> info@reen.com</a></li>
+				</ul><!-- /.contacts -->
+			</div><!-- /.col -->
+			<div class="col-md-3 col-sm-6 inner">
+				<h4>Free updates</h4>
+				<p>Conecus iure posae volor remped modis aut lor volor accabora incim resto explabo.</p>
+				<form id="newsletter" class="form-inline newsletter" role="form">
+					<label class="sr-only" for="exampleInputEmail">Email address</label>
+					<input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter your email address">
+					<button type="submit" class="btn btn-default btn-submit">Subscribe</button>
+				</form>
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+	</div><!-- .container -->
+	<div class="footer-bottom">
+		<div class="container inner">
+			<p class="pull-left">© 2015 REEN. All rights reserved.</p>
+			<ul class="footer-menu pull-right">
+				<li><a href="#who-we-are" class="scroll-to">Who we are</a></li>
+				<li><a href="#latest-works" class="scroll-to">Latest works</a></li>
+				<li><a href="#get-in-touch" class="scroll-to">Get in touch</a></li>
+			</ul><!-- .footer-menu -->
+		</div><!-- .container -->
+	</div><!-- .footer-bottom -->
+</footer>
 </body>
 </html>
 
