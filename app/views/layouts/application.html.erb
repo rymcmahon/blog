@@ -17,8 +17,8 @@
   <% else %>
     <meta name="description" content="Ryan McMahon's blog about Software Engineering, Web Development, and Ruby on Rails" />
   <% end %>
-  <%= favicon_link_tag 'blog-favicon.ico' %>
-  <%= favicon_link_tag 'blog-favicon.png', rel: 'apple-touch-icon', type: 'image/png' %>
+  <%= favicon_link_tag 'mcmahon-favicon.ico' %>
+  <%= favicon_link_tag 'mcmahon-favicon.png', rel: 'apple-touch-icon', type: 'image/png' %>
 </head>
 <body id="top">
   <header>
@@ -35,14 +35,14 @@
           <li><a href="https://twitter.com/ryanmcmahon716"><i class="icon-s-twitter"></i></a></li>
           <li><a href="https://github.com/rymcmahon"><i class="icon-s-github"></i></a></li>
         </ul><!-- /.social -->
-        <a class="navbar-brand" href="#"><img src="assets/images/logo.svg" class="logo" alt=""></a>
+        <a class="navbar-brand" href="#"><%= image_tag "mcmahon-logo-big.png", class: "logo" %></a>
         <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class='icon-menu-1'></i></a>
       </div><!-- /.container -->
     </div><!-- /.navbar-header -->
     <div class="yamm">
       <div class="navbar-collapse collapse">
         <div class="container">
-          <a class="navbar-brand scroll-to" href="#top"><img src="assets/images/logo.svg" class="logo" alt=""></a>
+          <a class="navbar-brand scroll-to" href="#top"><%= image_tag "mcmahon-logo-big.png", class: "logo" %></a>
           <ul class="nav navbar-nav pull-right">
             <li><a href="#about" class="scroll-to" data-anchor-offset="0">About</a></li>
             <li><a href="#services" class="scroll-to" data-anchor-offset="0">Services</a></li>
