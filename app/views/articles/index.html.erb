@@ -1,4 +1,4 @@
-<div class="index-wrapper">
+<!-- <div class="index-wrapper">
   <div class="row">
     <div class="col-md-8">
       <% @articles.order("created_at desc").each do |article| %>
@@ -38,5 +38,82 @@
       </div>
     </div>
   </div>
-</div>      
-       
+</div>
+        -->
+
+        <!-- ============================================================= SECTION – BLOG ============================================================= -->
+<main>
+  <section id="blog" class="light-bg">
+      <div class="container inner-top-sm inner-bottom classic-blog">
+        <div class="row">
+          <div class="col-md-9 inner-right-sm">
+            <% @articles.order("created_at desc").each do |article| %>
+            <div class="posts sidemeta">
+              <div class="post format-standard">
+                <div class="date-wrapper">
+                  <div class="date">
+                    <span class="day"><%= article.created_at.strftime("%e") %></span>
+                    <span class="month"><%= article.created_at.strftime("%b") %></span>
+                  </div><!-- /.date -->
+                </div><!-- /.date-wrapper -->
+                <div class="format-wrapper">
+                  <a href="#" data-filter=".format-standard"><i class="icon-edit"></i></a>
+                </div><!-- /.format-wrapper -->
+                <div class="post-content">
+                  <h2 class="post-title">
+                    <%= link_to markdown(article.title), article_path(article) %>
+                  </h2>
+                  <ul class="meta">
+                    <li class="categories"><a href="#">Business</a></li>
+                    <li class="comments"><a href="#"><%=article.comments.count%></a></li>
+                    <li class="likes"><a href="#">30</a></li>
+                  </ul><!-- /.meta -->
+                  <p><%= markdown(article.text.truncate(200, separator: ' ')) %></p>
+                  <a href="blog-post.html" class="btn">Read more</a>
+                </div><!-- /.post-content -->
+              </div><!-- /.post -->
+            </div><!-- /.posts -->
+            <% end %>
+          </div><!-- /.col -->
+          <aside class="col-md-3">
+            <div class="sidebox widget">
+              <h4>Categories</h4>
+              <% @categories.each do |category| %>
+                <%= link_to category_path(:id => category.id) do %>
+                <ul class="circled">
+                  <li><%= category.name %></a></li>
+                </ul><!-- /.circled -->
+                <% end %>
+              <% end %>
+            </div><!-- /.widget -->
+            <div class="sidebox widget">
+              <h4>Archives</h4>
+              <ul class="circled">
+                <li><a href="#">March 2015</a></li>
+                <li><a href="#">February 2015</a></li>
+                <li><a href="#">January 2015</a></li>
+                <li><a href="#">December 2013</a></li>
+                <li><a href="#">November 2013</a></li>
+                <li><a href="#">October 2013</a></li>
+              </ul><!-- /.circled -->
+
+              <a href="#" class="txt-btn">All archives</a>
+            </div><!-- /.widget -->
+            <div class="sidebox widget">
+              <h4>Ryan's Blog</h4>
+              <p>Magnis modipsae que lib voloratati andigen daepeditem reporemni labor. Laceaque quiae sitiorem rest non restibusaes es tumquam core posae volor remped modis volor.</p>
+              <p>Conecus iure posae volor remped modiatis aut accabora incim explabo eictemperum quiae sitiorem.</p>
+              <a href="#" class="txt-btn">Check out more</a>
+            </div><!-- /.widget -->
+
+            
+          </aside>
+
+        </div><!-- /.row -->
+
+      </div><!-- /.container -->
+    </section>
+
+    <!-- ============================================================= SECTION – BLOG : END ============================================================= -->
+
+  </main>
