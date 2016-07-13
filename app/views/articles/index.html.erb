@@ -1,47 +1,3 @@
-<!-- <div class="index-wrapper">
-  <div class="row">
-    <div class="col-md-8">
-      <% @articles.order("created_at desc").each do |article| %>
-        <%= link_to markdown(article.title), article_path(article) %>
-        <h5 class="date-title"><%= article.created_at.strftime("%B %e, %Y") %></h5>
-        <%= markdown(article.text.truncate(200, separator: ' ')) %>
-      <% end %>
-    </div>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">About Me</div>
-        <div class="panel-body panel-text">
-          Hi, my name is Ryan. I’m a software developer and when I'm not coding or blogging about it I enjoy cooking, sampling IPAs, and watching hockey or football.<br></br>
-          This blog is built with Ruby on Rails and has a custom authorization and authentication system for updating posts, creating posts, and adding categories.
-        </div>
-      </div>
-      <div class="list-group">
-        <li class="list-group-item active">Blog Categories</li>
-        <% @categories.each do |category| %>
-          <%= link_to category_path(:id => category.id), :class => "list-group-item" do %>
-            <span class="badge">
-              <%= @categories.find_by_name(category.name).articles.count %>
-            </span>
-            <%= category.name %>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">Elsewhere</div>
-          <div class="panel-body icon-center">
-            <a href="https://twitter.com/ryanmcmahon716"><%= fa_icon "twitter", class: "fa-2x" %></a>
-            <a href="https://github.com/rymcmahon?tab=repositories"><%= fa_icon "github", class: "fa-2x" %></a>
-            <a href="mailto:rymcmahon716@gmail.com"><%= fa_icon "envelope", class: "fa-2x" %></a>
-            <a href="https://www.linkedin.com/pub/ryan-mcmahon/1a/499/783"><%= fa_icon "linkedin", class: "fa-2x" %></a>
-            <a href="https://www.facebook.com/ryan.mcmahon.5268"><%= fa_icon "facebook", class: "fa-2x" %></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-        -->
-
-        <!-- ============================================================= SECTION – BLOG ============================================================= -->
 <main>
   <section id="blog" class="light-bg">
       <div class="container inner-top-sm inner-bottom classic-blog">
@@ -56,26 +12,27 @@
                     <span class="month"><%= article.created_at.strftime("%b") %></span>
                   </div><!-- /.date -->
                 </div><!-- /.date-wrapper -->
-                <div class="format-wrapper">
-                  <a href="#" data-filter=".format-standard"><i class="icon-edit"></i></a>
-                </div><!-- /.format-wrapper -->
                 <div class="post-content">
                   <h2 class="post-title">
                     <%= link_to markdown(article.title), article_path(article) %>
                   </h2>
                   <ul class="meta">
-                    <li class="categories"><a href="#">Business</a></li>
-                    <li class="comments"><a href="#"><%=article.comments.count%></a></li>
-                    <li class="likes"><a href="#">30</a></li>
+                    <li class="comments"><i class="icon-comment-1"></i> <%=article.comments.count%> Comments</li>
                   </ul><!-- /.meta -->
                   <p><%= markdown(article.text.truncate(200, separator: ' ')) %></p>
-                  <a href="blog-post.html" class="btn">Read more</a>
+                  <%= link_to "Read more", article_path(article), class:"btn" %>
                 </div><!-- /.post-content -->
               </div><!-- /.post -->
             </div><!-- /.posts -->
             <% end %>
           </div><!-- /.col -->
           <aside class="col-md-3">
+            <div class="sidebox widget">
+              <h4>Ryan’s Blog</h4>
+              <p>I write about web development, technology, working with clients, and everyday life.</p>
+              <p>Join the conversation by leaving a comment or asking a question and I’ll get back to you ASAP.</p>
+              <%= link_to "Back to Homepage", {:controller => :pages, :action=> :home, :anchor => "top"}, class: "txt-btn" %>
+            </div><!-- /.widget -->
             <div class="sidebox widget">
               <h4>Categories</h4>
               <% @categories.each do |category| %>
@@ -86,34 +43,8 @@
                 <% end %>
               <% end %>
             </div><!-- /.widget -->
-            <div class="sidebox widget">
-              <h4>Archives</h4>
-              <ul class="circled">
-                <li><a href="#">March 2015</a></li>
-                <li><a href="#">February 2015</a></li>
-                <li><a href="#">January 2015</a></li>
-                <li><a href="#">December 2013</a></li>
-                <li><a href="#">November 2013</a></li>
-                <li><a href="#">October 2013</a></li>
-              </ul><!-- /.circled -->
-
-              <a href="#" class="txt-btn">All archives</a>
-            </div><!-- /.widget -->
-            <div class="sidebox widget">
-              <h4>Ryan's Blog</h4>
-              <p>Magnis modipsae que lib voloratati andigen daepeditem reporemni labor. Laceaque quiae sitiorem rest non restibusaes es tumquam core posae volor remped modis volor.</p>
-              <p>Conecus iure posae volor remped modiatis aut accabora incim explabo eictemperum quiae sitiorem.</p>
-              <a href="#" class="txt-btn">Check out more</a>
-            </div><!-- /.widget -->
-
-
           </aside>
-
         </div><!-- /.row -->
-
       </div><!-- /.container -->
     </section>
-
-    <!-- ============================================================= SECTION – BLOG : END ============================================================= -->
   </main>
-

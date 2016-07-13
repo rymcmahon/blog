@@ -35,7 +35,7 @@
           <li><a href="https://twitter.com/ryanmcmahon716"><i class="icon-s-twitter"></i></a></li>
           <li><a href="https://github.com/rymcmahon"><i class="icon-s-github"></i></a></li>
         </ul><!-- /.social -->
-        <a class="navbar-brand" href="#"><%= image_tag "mcmahon-logo.png", class: "logo" %></a>
+        <a class="navbar-brand" href="/"><%= image_tag "mcmahon-logo.png", class: "logo" %></a>
         <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class='icon-menu-1'></i></a>
       </div><!-- /.container -->
     </div><!-- /.navbar-header -->
@@ -62,14 +62,13 @@
 		<div class="container inner">
 			<p class="pull-left">© <%= Time.now.strftime("%Y") %> McMahon Web Development. All rights reserved.</p>
 			<ul class="footer-menu pull-right">
-				<li><a href="#about" class="scroll-to">About</a></li>
-				<li><a href="#services" class="scroll-to">Services</a></li>
-				<li><a href="#contact" class="scroll-to">Contact</a></li>
-        <li><a href="#" class="scroll-to">Blog</a></li>
+        <li><%= link_to "About", :controller => :pages, :action=> :home, :anchor => "about" %></li>
+        <li><%= link_to "Services", :controller => :pages, :action=> :home, :anchor => "services" %></li>
+        <li><%= link_to "Contact", :controller => :pages, :action=> :home, :anchor => "contact" %></li>
+        <li><%= link_to "Blog", :controller => :articles, :action=> :index %></li>
 			</ul><!-- .footer-menu -->
 		</div><!-- .container -->
 	</div><!-- .footer-bottom -->
 </footer>
 </body>
 </html>
-
