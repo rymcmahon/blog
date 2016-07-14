@@ -9,7 +9,8 @@ class ArticlesController < ApplicationController
 	def show
 		@article = Article.find(params[:id])
 		@categories = Category.all
-		@comments = @article.comments.count
+		@comments = @article.comments.all
+		@number_of_comments = @article.comments.count
 	end
 
 	def new
@@ -53,7 +54,7 @@ class ArticlesController < ApplicationController
 	end
 
 	private
-		
+
 		def article_params
 			params.require(:article).permit(:title, :text, :category_ids => [])
 		end

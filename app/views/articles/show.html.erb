@@ -1,28 +1,104 @@
-<% title strip_tags(markdown(@article.title.to_s)) %>
-<% meta_description strip_tags(markdown(@article.text.truncate(200, separator: ' '))) %>
+<main>
+	<section id="blog-post" class="light-bg">
+		<div class="container inner-top-sm inner-bottom classic-blog">
+			<div class="row">
+				<div class="col-md-9 inner-right-sm">
+					<div class="sidemeta">
+						<div class="post format-gallery">
+							<div class="date-wrapper">
+								<div class="date">
+									<span class="day"><%= @article.created_at.strftime("%e") %></span>
+									<span class="month"><%= @article.created_at.strftime("%b") %></span>
+								</div><!-- /.date -->
+							</div><!-- /.date-wrapper -->
+							<div class="post-content">
+								<h1 class="post-title"><%= markdown(@article.title) %></h1>
+								<ul class="meta">
+									<% a = [] %>
+									<% @article.categories.each do |category| %>
+										<% a << category.name %>
+										<% end %>
+										<li class="categories"><%= a.join(', ') %></li>
+										<li class="comments"><i class="icon-comment-1"></i> <%= @number_of_comments %> Comments</li>
+								</ul><!-- /.meta -->
+								<p><%= markdown(@article.text) %></p>
+							</div><!-- /.post-content -->
+						</div><!-- /.post -->
+						<div id="comments">
+							<h2><%= @number_of_comments %> Comments</h2>
+							<ol class="commentlist">
+								<% @comments.each do |comment| %>
+								<li class="comment">
+									<div class="commentbody">
+										<div class="author">
+											<h3><%= comment.name %></h3>
+											<div class="meta">
+												<span class="date">Posted <%= time_ago_in_words(comment.created_at) %> ago</span>
+											</div><!-- /.meta -->
+										</div><!-- /.author -->
+										<div class="message">
+											<p><%= comment.name %></p>
+										</div><!-- /.message -->
+									</div><!-- /.commentbody -->
+								</li><!-- /.comment -->
+								<% end %>
+							</ol><!-- /.commentlist -->
+						</div><!-- /#comments -->
+						<div class="comment-form-wrapper">
+							<h2>Leave a Comment</h2>
 
-<div class="article-wrapper">
-	<% if logged_in? && current_user.admin? %>
-		<%= link_to 'Edit Article', edit_article_path(:id => @article.id ), class: "btn btn-default" %>
-	<% end %>
-	<% flash.each do |key, value| %>
-    <div class="alert alert-dismissible alert-<%= key %>"><h4>
-    	<button type="button" class="close" data-dismiss="alert">X</button>
-    		<h4><%= value %></h4>
-    </div>
-  <% end %>
-	<%= markdown(@article.title) %>
-	<h5 class="date-title"><%= @article.created_at.strftime("%B %e, %Y") %></h5>
-	<%= markdown(@article.text) %>
-	<% @article.categories.each do |category| %>
-		<span class="label label-info article-label">
-		<%= category.name %>
-		</span>
-	<% end %>
-	<% if @comments > 0 %>
-	<legend>What Readers are Saying</legend>
-	<%= render @article.comments %>
-	<% end %>
-	<%= render 'comments/form' %>
-</div>
+							<form id="commentform" class="forms" action="" method="post">
+
+								<div class="row">
+									<div class="col-sm-6">
+										<input type="text" name="name" class="form-control" placeholder="Name (Required)">
+									</div><!-- /.col -->
+								</div><!-- /.row -->
+
+								<div class="row">
+									<div class="col-sm-6">
+										<input type="email" name="email" class="form-control" placeholder="Email (Required)">
+									</div><!-- /.col -->
+								</div><!-- /.row -->
+
+								<div class="row">
+									<div class="col-sm-6">
+										<input type="text" name="website" class="form-control" placeholder="Website">
+									</div><!-- /.col -->
+								</div><!-- /.row -->
+
+								<div class="row">
+									<div class="col-sm-12">
+										<textarea name="message" class="form-control" placeholder="Enter your comment ..."></textarea>
+									</div><!-- /.col -->
+								</div><!-- /.row -->
+
+								<button type="submit" class="btn btn-default btn-submit">Submit comment</button>
+
+							</form>
+
+							<div id="response"></div>
+
+						</div><!-- /.comment-form-wrapper -->
+
+					</div><!-- /.sidemeta -->
+				</div><!-- /.col -->
+
+				<aside class="col-md-3">
+					<div class="sidebox widget">
+						<h4>Categories</h4>
+						<% @categories.each do |category| %>
+							<%= link_to category_path(:id => category.id) do %>
+							<ul class="circled">
+								<li><%= category.name %></a></li>
+							</ul><!-- /.circled -->
+							<% end %>
+						<% end %>
+						  <%= link_to "Back to Homepage", {:controller => :pages, :action=> :home, :anchor => "top"}, class: "txt-btn" %>
+					</div><!-- /.widget -->
+				</aside>
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</section>
+</main>
 
