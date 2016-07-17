@@ -1,9 +1,45 @@
-<div class="article-wrapper">
-	<% @category.articles.each do |article| %>
-			<span class="">
-			<%= markdown(article.title) %>
-		<h5 class="date-title"><%= article.created_at.strftime("%B %e, %Y") %></h5>
-		<%= markdown(article.text) %>
-			</span>
-	<% end %>
-</div>
+<main>
+	<section id="blog-post" class="light-bg">
+		<div class="container inner-top-sm inner-bottom classic-blog">
+			<% flash.each do |key, value| %>
+			<div class="alert alert-dismissible alert-<%= key %>"><h4>
+				<button type="button" class="close" data-dismiss="alert">X</button>
+				<h4><%= value %></h4>
+			</div>
+			<% end %>
+			<div class="row">
+				<div class="col-md-9 inner-right-sm">
+					<div class="sidemeta">
+						<% @category.articles.each do |article| %>
+						<div class="post format-gallery">
+							<div class="date-wrapper">
+								<div class="date">
+									<span class="day"><%= article.created_at.strftime("%e") %></span>
+									<span class="month"><%= article.created_at.strftime("%b") %></span>
+								</div><!-- /.date -->
+							</div><!-- /.date-wrapper -->
+							<div class="post-content">
+								<h1 class="post-title"><%= markdown(article.title) %></h1>
+								<p><%= markdown(article.text) %></p>
+							</div><!-- /.post-content -->
+						</div><!-- /.post -->
+						<% end %>
+					</div><!-- /.sidemeta -->
+				</div><!-- /.col -->
+				<aside class="col-md-3">
+					<div class="sidebox widget">
+						<h4>Categories</h4>
+						<% @categories.each do |category| %>
+							<%= link_to category_path(:id => category.id) do %>
+							<ul class="circled">
+								<li><%= category.name %></a></li>
+							</ul><!-- /.circled -->
+							<% end %>
+						<% end %>
+						  <%= link_to "Back to Homepage", {:controller => :pages, :action=> :home, :anchor => "top"}, class: "txt-btn" %>
+					</div><!-- /.widget -->
+				</aside>
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</section>
+</main>
