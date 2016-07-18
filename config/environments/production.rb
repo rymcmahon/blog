@@ -78,16 +78,16 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { :host => 'www.rymcmahon.com' }
-  config.action_mailer.default :charset => "utf-8"
+
+  #Mailgun setup
+  config.action_mailer.default_url_options = { host: 'ancient-anchorage-8289.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: "587",
-    domain: "gmail.com",
-    authentication: "plain",
-    enable_starttls_auto: true,  
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => ENV["mailgun_domain"],
+    :user_name => ENV["mailgun_username"],
+    :password => ENV["mailgun_password"]
   }
 end
