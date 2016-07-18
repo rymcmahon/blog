@@ -17,7 +17,7 @@
                     <%= link_to markdown(article.title), article_path(article) %>
                   </h2>
                   <ul class="meta">
-                    <li class="comments"><i class="icon-comment-1"></i> <%=article.comments.count%> Comments</li>
+                    <li class="comments"><i class="icon-comment-1"></i> <%= pluralize(article.comments.count, 'Comment') %></li>
                   </ul><!-- /.meta -->
                   <p><%= markdown(article.text.truncate(200, separator: ' ')) %></p>
                   <%= link_to "Read more", article_path(article), class:"btn" %>
