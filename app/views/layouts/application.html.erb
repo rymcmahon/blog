@@ -1,74 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title> <% if yield(:title).present? %>
-            <%= yield(:title) %>
-          <% else %>
-            Ryan McMahon | Software Development | Ruby on Rails
-          <% end %> </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-  <link href="http://fonts.googleapis.com/css?family=Lato:400,900,300,700" rel="stylesheet">
-		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel="stylesheet">
-  <% if yield(:meta_description).present? %>
-    <meta name="description" content="<%= yield(:meta_description) %>" />
-  <% else %>
-    <meta name="description" content="Ryan McMahon's blog about Software Engineering, Web Development, and Ruby on Rails" />
-  <% end %>
-  <%= favicon_link_tag 'mcmahon-favicon.ico' %>
-  <%= favicon_link_tag 'mcmahon-favicon.png', rel: 'apple-touch-icon', type: 'image/png' %>
-</head>
-<body id="top">
-  <header>
-  <div class="navbar">
-    <div class="navbar-header">
-      <div class="container">
-        <ul class="info pull-left">
-          <li><a href="mailto:rymcmahon716@gmail.com"><i class="icon-mail-1 contact"></i>rymcmahon716@gmail.com</a></li>
-          <li><i class="icon-mobile contact"></i><a href="tel:17739153198" style='display:inline;'>(773) 915-3198</a></li>
-        </ul><!-- /.info -->
-        <ul class="social pull-right">
-          <li><a href="https://www.facebook.com/ryan.mcmahon.5268"><i class="icon-s-facebook"></i></a></li>
-          <li><a href="https://www.linkedin.com/in/ryan-mcmahon-7834991a"><i class="icon-s-linkedin"></i></a></li>
-          <li><a href="https://twitter.com/ryanmcmahon716"><i class="icon-s-twitter"></i></a></li>
-          <li><a href="https://github.com/rymcmahon"><i class="icon-s-github"></i></a></li>
-        </ul><!-- /.social -->
-        <a class="navbar-brand" href="/"><%= image_tag "mcmahon-logo.png", class: "logo" %></a>
-        <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class='icon-menu-1'></i></a>
-      </div><!-- /.container -->
-    </div><!-- /.navbar-header -->
-    <div class="yamm">
-      <div class="navbar-collapse collapse">
+  <head>
+    <title> <% if yield(:title).present? %>
+              <%= yield(:title) %>
+            <% else %>
+              Ryan McMahon | Website and App Development | Ruby on Rails
+            <% end %> </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,900,300,700" rel="stylesheet">
+  		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel="stylesheet">
+    <% if yield(:meta_description).present? %>
+      <meta name="description" content="<%= yield(:meta_description) %>" />
+    <% else %>
+      <meta name="description" content="Based in Chicago, Ryan McMahon builds software, websites, and web apps that help organizations thrive. He also blogs about Ruby on Rails, consulting, and his passion for the web." />
+    <% end %>
+    <%= favicon_link_tag 'mcmahon-favicon.ico' %>
+    <%= favicon_link_tag 'mcmahon-favicon.png', rel: 'apple-touch-icon', type: 'image/png' %>
+  </head>
+  <body id="top">
+    <header>
+    <div class="navbar">
+      <div class="navbar-header">
         <div class="container">
-          <a class="navbar-brand scroll-to" href="#top"><%= image_tag "mcmahon-logo.png", class: "logo" %></a>
-          <ul class="nav navbar-nav pull-right">
-            <!-- <li><a href="#about" class="scroll-to" data-anchor-offset="0">About</a></li>
-            <li><a href="#services" class="scroll-to" data-anchor-offset="0">Services</a></li> -->
-            <li><%= link_to "About", :controller => :pages, :action=> :home, :anchor => "about" %></li>
-            <li><%= link_to "Services", :controller => :pages, :action=> :home, :anchor => "services" %></li>
-            <li><%= link_to "Contact", :controller => :pages, :action=> :home, :anchor => "contact" %></li>
-            <li><%= link_to "Blog", :controller => :articles, :action=> :index %></li>
-          </ul><!-- /.nav -->
+          <ul class="info pull-left">
+            <li><a href="mailto:rymcmahon716@gmail.com"><i class="icon-mail-1 contact"></i>rymcmahon716@gmail.com</a></li>
+            <li><i class="icon-mobile contact"></i><a href="tel:17739153198" style='display:inline;'>(773) 915-3198</a></li>
+          </ul><!-- /.info -->
+          <ul class="social pull-right">
+            <li><a href="https://www.facebook.com/ryan.mcmahon.5268"><i class="icon-s-facebook"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/ryan-mcmahon-7834991a"><i class="icon-s-linkedin"></i></a></li>
+            <li><a href="https://twitter.com/ryanmcmahon716"><i class="icon-s-twitter"></i></a></li>
+            <li><a href="https://github.com/rymcmahon"><i class="icon-s-github"></i></a></li>
+          </ul><!-- /.social -->
+          <a class="navbar-brand" href="/"><%= image_tag "mcmahon-logo.png", class: "logo" %></a>
+          <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class='icon-menu-1'></i></a>
         </div><!-- /.container -->
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.yamm -->
-  </div><!-- /.navbar -->
-</header>
-<%= yield %>
-<footer class="dark-bg">
-	<div class="footer-bottom">
-		<div class="container inner">
-			<p class="pull-left">© <%= Time.now.strftime("%Y") %> McMahon Web Development. All rights reserved.</p>
-			<ul class="footer-menu pull-right">
-        <li><%= link_to "About", :controller => :pages, :action=> :home, :anchor => "about" %></li>
-        <li><%= link_to "Services", :controller => :pages, :action=> :home, :anchor => "services" %></li>
-        <li><%= link_to "Contact", :controller => :pages, :action=> :home, :anchor => "contact" %></li>
-        <li><%= link_to "Blog", :controller => :articles, :action=> :index %></li>
-			</ul><!-- .footer-menu -->
-		</div><!-- .container -->
-	</div><!-- .footer-bottom -->
-</footer>
-</body>
+      </div><!-- /.navbar-header -->
+      <div class="yamm">
+        <div class="navbar-collapse collapse">
+          <div class="container">
+            <a class="navbar-brand scroll-to" href="#top"><%= image_tag "mcmahon-logo.png", class: "logo" %></a>
+            <ul class="nav navbar-nav pull-right">
+              <!-- <li><a href="#about" class="scroll-to" data-anchor-offset="0">About</a></li>
+              <li><a href="#services" class="scroll-to" data-anchor-offset="0">Services</a></li> -->
+              <li><%= link_to "About", :controller => :pages, :action=> :home, :anchor => "about" %></li>
+              <li><%= link_to "Services", :controller => :pages, :action=> :home, :anchor => "services" %></li>
+              <li><%= link_to "Contact", :controller => :pages, :action=> :home, :anchor => "contact" %></li>
+              <li><%= link_to "Blog", :controller => :articles, :action=> :index %></li>
+            </ul><!-- /.nav -->
+          </div><!-- /.container -->
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.yamm -->
+    </div><!-- /.navbar -->
+  </header>
+  <%= yield %>
+  <footer class="dark-bg">
+  	<div class="footer-bottom">
+  		<div class="container inner">
+  			<p class="pull-left">© <%= Time.now.strftime("%Y") %> McMahon Web Development. All rights reserved.</p>
+  			<ul class="footer-menu pull-right">
+          <li><%= link_to "About", :controller => :pages, :action=> :home, :anchor => "about" %></li>
+          <li><%= link_to "Services", :controller => :pages, :action=> :home, :anchor => "services" %></li>
+          <li><%= link_to "Contact", :controller => :pages, :action=> :home, :anchor => "contact" %></li>
+          <li><%= link_to "Blog", :controller => :articles, :action=> :index %></li>
+  			</ul><!-- .footer-menu -->
+  		</div><!-- .container -->
+  	</div><!-- .footer-bottom -->
+  </footer>
+  </body>
 </html>
