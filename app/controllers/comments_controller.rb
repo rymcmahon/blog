@@ -5,10 +5,10 @@ class CommentsController < ApplicationController
 		@comment = @article.comments.new(comments_params)
 		if @comment.save
 			CommentMailer.comment_notification(@comment, @article).deliver
-			flash[:success] = "Thanks for commenting!"
+			flash[:notice] = "Thanks for commenting!"
 			redirect_to article_path(@article)
 		else
-			flash[:danger] = "You must provide a name, valid email address, and a comment."
+			flash[:alert] = "You must provide a name, valid email address, and a comment."
 			redirect_to article_path(@article)
 		end
 	end

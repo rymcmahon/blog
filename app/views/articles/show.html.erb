@@ -1,11 +1,17 @@
 <main>
 	<section id="blog-post" class="light-bg">
 		<div class="container inner-top-sm inner-bottom classic-blog">
-			<% flash.each do |key, value| %>
-			<div class="alert alert-dismissible alert-<%= key %>"><h4>
-				<button type="button" class="close" data-dismiss="alert">X</button>
-				<h4><%= value %></h4>
-			</div>
+			<% if notice %>
+			<div class="alert alert-dismissible alert-success">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<h4 class="notice"><%= notice %><h4>
+				</div>
+				<% end %>
+				<% if alert %>
+				<div class="alert alert-dismissible alert-danger">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<h4 class="notice"><%= alert %></h4>
+				</div>
 			<% end %>
 			<div class="row">
 				<div class="col-md-9 inner-right-sm">
