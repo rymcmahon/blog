@@ -31,13 +31,13 @@
 										<% a << category.name %>
 										<% end %>
 										<li class="categories"><%= a.join(', ') %></li>
-										<li class="comments"><i class="icon-comment-1"></i> <%= @number_of_comments %> Comments</li>
+										<li class="comments"><i class="icon-comment-1"></i> <%= pluralize(@article_comments.count, 'Comment') %></li>
 								</ul><!-- /.meta -->
 								<p><%= markdown(@article.text) %></p>
 							</div><!-- /.post-content -->
 						</div><!-- /.post -->
 						<div id="comments">
-							<h2><%= @number_of_comments %> Comments</h2>
+							<h2><%= pluralize(@article_comments.count, 'Comment') %> </h2>
 							<ol class="commentlist">
 								<% @comments.each do |comment| %>
 								<li class="comment">

@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 		@categories = Category.all
 		@comments = @article.comments.all
-		@number_of_comments = @article.comments.count
+		@article_comments = @article.comments
 	end
 
 	def new
