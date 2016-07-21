@@ -6,6 +6,9 @@ before_action :admin_user, only: [:index, :show, :edit, :destroy]
 		@comments = @article.comments
 	end
 
+	def show
+		@comment = Comment.find(params[:id])
+	end
 
 	def edit
 		@comment = Comment.find(params[:id])

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :admin_user, only: [:edit, :update, :destroy]
+  before_action :admin_user
 
   def index
+    @user = User.all
   end
 
   def show
@@ -43,7 +44,7 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
 
-  private 
+  private
 
   	def user_params
   		params.require(:user).permit(:name, :email, :password, :password_confirmation)
@@ -57,7 +58,7 @@ class UsersController < ApplicationController
     end
 
     def admin_user
-      unless current_user.admin?
+      unless current_user.try(:admin?)
         flash[:danger] = "You ain't no Admin, fool!"
         redirect_to(root_url)
       end

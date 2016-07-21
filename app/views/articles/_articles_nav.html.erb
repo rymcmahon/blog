@@ -1,0 +1,38 @@
+<header>
+<div class="navbar">
+	<div class="navbar-header">
+		<div class="container">
+			<ul class="info pull-left">
+				<li><a href="mailto:rymcmahon716@gmail.com"><i class="icon-mail-1 contact"></i>rymcmahon716@gmail.com</a></li>
+				<li><i class="icon-mobile contact"></i><a href="tel:17739153198" style='display:inline;'>(773) 915-3198</a></li>
+			</ul><!-- /.info -->
+			<ul class="social pull-right">
+				<li><a href="https://www.facebook.com/ryan.mcmahon.5268"><i class="icon-s-facebook"></i></a></li>
+				<li><a href="https://www.linkedin.com/in/ryan-mcmahon-7834991a"><i class="icon-s-linkedin"></i></a></li>
+				<li><a href="https://twitter.com/ryanmcmahon716"><i class="icon-s-twitter"></i></a></li>
+				<li><a href="https://github.com/rymcmahon"><i class="icon-s-github"></i></a></li>
+			</ul><!-- /.social -->
+			<a class="navbar-brand" href="/"><%= image_tag "mcmahon-logo.png", class: "logo" %></a>
+			<a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class='icon-menu-1'></i></a>
+		</div><!-- /.container -->
+	</div><!-- /.navbar-header -->
+	<div class="yamm">
+		<div class="navbar-collapse collapse">
+			<div class="container">
+				<a class="navbar-brand scroll-to" href="#top"><%= image_tag "mcmahon-logo.png", class: "logo" %></a>
+				<ul class="nav navbar-nav pull-right">
+					<!-- <li><a href="#about" class="scroll-to" data-anchor-offset="0">About</a></li>
+					<li><a href="#services" class="scroll-to" data-anchor-offset="0">Services</a></li> -->
+					<li><%= link_to "About", :controller => :pages, :action=> :home, :anchor => "about" %></li>
+					<li><%= link_to "Services", :controller => :pages, :action=> :home, :anchor => "services" %></li>
+					<li><%= link_to "Contact", :controller => :pages, :action=> :home, :anchor => "contact" %></li>
+					<li><%= link_to "Blog", :controller => :articles, :action=> :index %></li>
+					<% if logged_in? %>
+						<li>  <%= link_to "Log out", logout_path, method: "delete" %> </li>
+					<% end %>
+				</ul><!-- /.nav -->
+			</div><!-- /.container -->
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.yamm -->
+</div><!-- /.navbar -->
+</header>

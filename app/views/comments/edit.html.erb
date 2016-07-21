@@ -1,30 +1,29 @@
+<%= render 'comments_nav' %>
 <main>
-<div class="container comment-table">
-  <table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Comment</th>
-    <th>Created</th>
-    <th>Approved?</th>
-  </tr>
-  <tr>
-    <td><%= @comment.name %></td>
-    <td><%= @comment.email %></td>
-    <td><%= @comment.body %></td>
-    <td><%= @comment.created_at.strftime('%B %d, %Y') %></td>
-    <td><%= @comment.approved %></td>
-  </tr>
-  </table>
-<%= form_for @comment, url: article_comment_path, method: :patch do |f| %>
-<div class="row">
-  <div class="col-sm-2">
-  <%= f.check_box :approved %>
-  <%= f.submit "Approve", class: "btn btn-default btn-small" %>
-</div>
-<div class="col-sm-2">
-</div>
-</div>
-<% end %>
-</div>
+  <div class="container comment-table">
+    <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Comment</th>
+      <th>Created</th>
+      <th>Approved?</th>
+    </tr>
+    <tr>
+      <td><%= @comment.name %></td>
+      <td><%= @comment.email %></td>
+      <td><%= @comment.body %></td>
+      <td><%= @comment.created_at.strftime('%B %d, %Y') %></td>
+      <td><%= @comment.approved %></td>
+    </tr>
+    </table>
+    <%= form_for @comment, url: article_comment_path, method: :patch do |f| %>
+      <div class="row">
+        <div class="col-sm-2">
+          <%= f.check_box :approved %>
+          <%= f.submit "Approve", class: "btn btn-default btn-small" %>
+        </div>
+      </div>
+  <% end %>
+  </div>
 </main>
