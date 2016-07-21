@@ -31,15 +31,15 @@
 										<% a << category.name %>
 										<% end %>
 										<li class="categories"><%= a.join(', ') %></li>
-										<li class="comments"><i class="icon-comment-1"></i> <%= pluralize(@article_comments.count, 'Comment') %></li>
+										<li class="comments"><i class="icon-comment-1"></i> <%= pluralize(@article_comments.where(approved: true).count, 'Comment') %></li>
 								</ul><!-- /.meta -->
 								<p><%= markdown(@article.text) %></p>
 							</div><!-- /.post-content -->
 						</div><!-- /.post -->
 						<div id="comments">
-							<h2><%= pluralize(@article_comments.count, 'Comment') %> </h2>
+							<h2><%= pluralize(@article_comments.where(approved: true).count, 'Comment') %> </h2>
 							<ol class="commentlist">
-								<% @comments.each do |comment| %>
+								<% @comments.where(approved: true).each do |comment| %>
 								<li class="comment">
 									<div class="commentbody">
 										<div class="author">

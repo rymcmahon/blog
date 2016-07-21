@@ -1,0 +1,24 @@
+
+<main>
+<div class="container comment-table">
+<table class="table table-striped">
+<tr>
+  <th>Name</th>
+  <th>Email</th>
+  <th>Comment</th>
+  <th>Created</th>
+  <th colspan="2">Approved?</th>
+</tr>
+<% @comments.order("created_at desc").each do |comment| %>
+<tr>
+  <td><%= comment.name %></td>
+  <td><%= comment.email %></td>
+  <td><%= comment.body %></td>
+  <td><%= comment.created_at.strftime('%B %d, %Y') %></td>
+  <td><%= comment.approved %></td>
+  <td><%= link_to 'Approve', edit_article_comment_path(comment.article_id, comment.id), class: "btn btn-default btn-small" %></td>
+</tr>
+<% end %>
+</table>
+</div>
+</main>
