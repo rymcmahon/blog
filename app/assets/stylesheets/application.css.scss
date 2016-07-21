@@ -83,6 +83,10 @@
   padding: 50px 20px;
 }
 
+.user-wrapper {
+  padding: 50px 60px;
+}
+
 /*Targeting Firefox*/
 @-moz-document url-prefix() {
   #owl-main .caption h1.dark-bg span, #owl-main .caption p.dark-bg span {

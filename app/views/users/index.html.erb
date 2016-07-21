@@ -1,4 +1,17 @@
 <%= render 'users_nav' %>
-<% @user.each do |user| %>
-  <%= user.name %>
-<% end %>
+<main>
+  <div class="user-wrapper">
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+      <% @user.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</main>

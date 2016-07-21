@@ -1,2 +1,9 @@
 <%= render 'users_nav' %>
-<%= @user.name %>, <%= @user.email %>
+<main>
+  <div class="user-wrapper">
+    <h3>Name</h3>
+    <h4><%= @user.name %></h4>
+    <h3>Email</h3>
+    <h4><%= @user.email %></h4>
+  </div>
+</main>
