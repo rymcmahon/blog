@@ -75,6 +75,14 @@
   padding: 50px 60px;
 }
 
+.new-article-wrapper {
+  padding: 50px 20px;
+}
+
+.login-wrapper {
+  padding: 50px 20px;
+}
+
 /*Targeting Firefox*/
 @-moz-document url-prefix() {
   #owl-main .caption h1.dark-bg span, #owl-main .caption p.dark-bg span {

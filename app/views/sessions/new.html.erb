@@ -1,7 +1,9 @@
+<main>
+	<div class="container login-wrapper">
 
 <%= form_for(:session, url: login_path, html: {class: "form-horizontal"}) do |f| %>
 	<fieldset>
-		<legend>Log in</legend>
+		<h2>Log in</h2>
 			<div class="form-group">
 		    <%= f.label :email, class: "col-sm-2" %>
 			  <div class="col-sm-4">
@@ -15,9 +17,12 @@
   			</div>
   		</div>
   		<div class="form-group">
-      	<div class="col-sm-10 col-sm-offset-2">
+      	<div class="col-sm-4 col-sm-offset-2">
     			<%= f.submit "Log in", class: "btn btn-default" %>
     		</div>
     	</div>
 	</fieldset>
 <% end %>
+
+</div>
+</main>
