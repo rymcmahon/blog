@@ -38,3 +38,16 @@
   <%= render 'services' %>
 	<%= render 'contact' %>
 </main>
+<footer class="dark-bg">
+	<div class="footer-bottom">
+		<div class="container inner">
+			<p class="pull-left">© <%= Time.now.strftime("%Y") %> McMahon Web Development. All rights reserved.</p>
+			<ul class="footer-menu pull-right">
+				<li><a href="#about" class="scroll-to" data-anchor-offset="0">About</a></li>
+				<li><a href="#services" class="scroll-to" data-anchor-offset="0">Services</a></li>
+				<li><a href="#contact" class="scroll-to" data-anchor-offset="0">Contact</a></li>
+				<li><%= link_to "Blog", :controller => :articles, :action=> :index %></li>
+			</ul><!-- .footer-menu -->
+		</div><!-- .container -->
+	</div><!-- .footer-bottom -->
+</footer>

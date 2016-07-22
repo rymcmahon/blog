@@ -1,52 +1,69 @@
 <%= render 'articles_nav' %>
-<%= form_for :article, html: {class: "form-horizontal"}, url: article_path(@article), method: :patch do |f| %>
-  <fieldset>
-  <% if @article.errors.any? %>
-    <div id="error_explanation" class="alert alert-dismissible alert-danger">
-      <button type="button" class="close" data-dismiss="alert">×</button>
-      <p><strong>
-        <%= pluralize(@article.errors.count, "error") %> prohibited
-        this article from being saved:</strong>
-      </p>
-      <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-          <li><h5><%= msg %></h5></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-    <legend>Edit Article</legend>
-      <div class="form-group">
-        <%= f.label :title, class: "col-sm-2" %>
-        <div class="col-sm-8">
-          <%= f.text_field :title, class: "form-control" %>
+<main>
+  <div class="container article-form-wrapper">
+    <%= form_for :article, html: {class: "form-horizontal"}, url: article_path(@article), method: :patch do |f| %>
+      <fieldset>
+      <% if @article.errors.any? %>
+        <div id="error_explanation" class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <p><strong>
+            <%= pluralize(@article.errors.count, "error") %> prohibited
+            this article from being saved:</strong>
+          </p>
+          <ul>
+            <% @article.errors.full_messages.each do |msg| %>
+              <li><h5><%= msg %></h5></li>
+            <% end %>
+          </ul>
         </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :text, class: "col-sm-2" %>
-        <div class="col-sm-8">
-          <%= f.text_area :text, class: "form-control text-input" %>
+      <% end %>
+        <h2>Edit Article</h2>
+          <div class="form-group">
+            <%= f.label :title, class: "col-sm-2" %>
+            <div class="col-sm-8">
+              <%= f.text_field :title, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :text, class: "col-sm-2" %>
+            <div class="col-sm-8">
+              <%= f.text_area :text, class: "form-control text-input" %>
+            </div>
+          </div>
+          <div class="form-inline">
+            <div class="checkbox col-sm-10 col-sm-offset-2">
+              <% @categories.each do |category| %>
+                <%= check_box_tag "article[category_ids][]", category.id, @article.categories.include?(category) %>
+                <%= category.name %>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <div class="form-inline">
-        <div class="checkbox col-sm-10 col-sm-offset-2">
-          <% @categories.each do |category| %>
-            <%= check_box_tag "article[category_ids][]", category.id, @article.categories.include?(category) %>
-            <%= category.name %>
-        <% end %>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-10 col-sm-offset-2">
-        <%= f.submit "Edit Article", class: "btn btn-default" %>
-      </div>
-    </div>
-<% end %>
-<div class="form-group">
-  <% if current_user.try(:admin?) %>
-    <div class="col-sm-10 col-sm-offset-2">
-      <%= link_to 'Destroy', article_path, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.submit "Edit Article", class: "btn btn-default" %>
+          </div>
+        </div>
     <% end %>
+    <div class="form-group">
+      <% if current_user.try(:admin?) %>
+        <div class="col-sm-10 col-sm-offset-2">
+          <%= link_to 'Destroy', article_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        </div>
     </div>
-</div>
-</fieldset>
+    </fieldset>
+  </div>
+</main>
+<footer class="dark-bg">
+  <div class="footer-bottom">
+    <div class="container inner">
+      <p class="pull-left">© <%= Time.now.strftime("%Y") %> McMahon Web Development. All rights reserved.</p>
+      <ul class="footer-menu pull-right">
+        <li><%= link_to "About", :controller => :pages, :action=> :home, :anchor => "about" %></li>
+        <li><%= link_to "Services", :controller => :pages, :action=> :home, :anchor => "services" %></li>
+        <li><%= link_to "Contact", :controller => :pages, :action=> :home, :anchor => "contact" %></li>
+        <li><%= link_to "Blog", :controller => :articles, :action=> :index %></li>
+      </ul><!-- .footer-menu -->
+    </div><!-- .container -->
+  </div><!-- .footer-bottom -->
+</footer>
