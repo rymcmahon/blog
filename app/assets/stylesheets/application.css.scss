@@ -93,3 +93,9 @@
     box-decoration-break: clone;
   }
 }
+
+@media(max-width:767px) {
+  .services-img-phone {
+    width: 100%;
+  }
+}
