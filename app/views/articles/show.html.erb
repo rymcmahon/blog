@@ -1,3 +1,5 @@
+<% title strip_tags(markdown(@article.title)) %>
+<% meta_description strip_tags(markdown(@article.text.truncate(150, separator: ' '))) %>
 <%= render 'articles_nav' %>
 <main>
 	<section id="blog-post" class="light-bg">
@@ -27,20 +29,20 @@
 							<div class="post-content">
 								<h1 class="post-title"><%= markdown(@article.title) %></h1>
 								<ul class="meta">
-									<% a = [] %>
+									<% article_categories = [] %>
 									<% @article.categories.each do |category| %>
-										<% a << category.name %>
-										<% end %>
-										<li class="categories"><%= a.join(', ') %></li>
-										<li class="comments"><i class="icon-comment-1"></i> <%= pluralize(@article_comments.where(approved: true).count, 'Comment') %></li>
+										<% article_categories << category.name %>
+									<% end %>
+									<li class="categories"><%= article_categories.join(', ') %></li>
+									<li class="comments"><i class="icon-comment-1"></i> <%= pluralize(@article_comments.approved.count, 'Comment') %></li>
 								</ul><!-- /.meta -->
 								<p><%= markdown(@article.text) %></p>
 							</div><!-- /.post-content -->
 						</div><!-- /.post -->
 						<div id="comments">
-							<h2><%= pluralize(@article_comments.where(approved: true).count, 'Comment') %> </h2>
+							<h2><%= pluralize(@article_comments.approved.count, 'Comment') %> </h2>
 							<ol class="commentlist">
-								<% @comments.where(approved: true).each do |comment| %>
+								<% @comments.approved.each do |comment| %>
 								<li class="comment">
 									<div class="commentbody">
 										<div class="author">

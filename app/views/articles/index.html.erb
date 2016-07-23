@@ -1,3 +1,5 @@
+<% title "Ryan McMahon’s Web Development Blog | Ruby on Rails" %>
+<% meta_description "Ryan McMahon’s blog with posts about web design, software development, consulting, and Ruby on Rails." %>
 <%= render 'articles_nav' %>
 <main>
   <section id="blog" class="light-bg">
@@ -18,7 +20,7 @@
                     <%= link_to markdown(article.title), article_path(article) %>
                   </h2>
                   <ul class="meta">
-                    <li class="comments"><i class="icon-comment-1"></i> <%= pluralize(article.comments.where(approved: true).count, 'Comment') %></li>
+                    <li class="comments"><i class="icon-comment-1"></i> <%= pluralize(article.comments.approved.count, 'Comment') %></li>
                   </ul><!-- /.meta -->
                   <p><%= markdown(article.text.truncate(200, separator: ' ')) %></p>
                   <%= link_to "Read more", article_path(article), class:"btn" %>

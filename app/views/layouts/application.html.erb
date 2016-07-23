@@ -15,10 +15,12 @@
     <% if yield(:meta_description).present? %>
       <meta name="description" content="<%= yield(:meta_description) %>" />
     <% else %>
-      <meta name="description" content="Based in Chicago, Ryan McMahon builds software, websites, and web apps that help organizations thrive. He also blogs about Ruby on Rails, consulting, and his passion for the web." />
+      <meta name="description" content="Ryan McMahon is a freelance web developer who builds software, websites, and web apps for organizations in Chicago. He builds e-commerce websites, admin dashboards, database-backed web apps, employee management systems, and CMSs to help businesses thrive." />
     <% end %>
     <%= favicon_link_tag 'mcmahon-favicon.ico' %>
     <%= favicon_link_tag 'mcmahon-favicon.png', rel: 'apple-touch-icon', type: 'image/png' %>
+    <%= favicon_link_tag 'touch-icon-ipad-retina.png', rel: 'apple-touch-icon', sizes: '152x152', type: 'image/png' %>
+    <%= favicon_link_tag 'touch-icon-iphone-retina', rel: 'apple-touch-icon',sizes: '120x120', type: 'image/png' %>
   </head>
   <body id="top">
   <%= yield %>
