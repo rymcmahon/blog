@@ -31,17 +31,17 @@
 					<%= form_for :message, url: messages_path do |f| %>
 						<div class="row">
 							<div class="col-sm-6">
-								<%= f.text_field :name, class: "form-control", placeholder: "Name (Required)" %>
+								<%= f.text_field :name, class: "form-control", placeholder: "Name (required)" %>
 							</div><!-- /.col -->
 						</div><!-- /.row -->
 						<div class="row">
 							<div class="col-sm-6">
-								<%= f.text_field :email, class: "form-control", placeholder: "Email (Required)" %>
+								<%= f.text_field :email, class: "form-control", placeholder: "Email (required, but never published)" %>
 							</div><!-- /.col -->
 						</div><!-- /.row -->
 						<div class="row">
 							<div class="col-sm-12">
-								<%= f.text_area :text, class: "form-control", placeholder: "Enter your message (required)" %>
+								<%= f.text_area :text, class: "form-control", placeholder: "Message (required)" %>
 							</div><!-- /.col -->
 						</div><!-- /.row -->
 						<%= f.submit "Send Message", class: "btn btn-default btn-submit" %>

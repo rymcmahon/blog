@@ -64,18 +64,18 @@
 							<%= form_for ([@article, @article.comments.build]), :html => {:class => "forms"} do |f| %>
 								<div class="row">
 									<div class="col-sm-6">
-										<%= f.text_field :name, class: "form-control", placeholder: "(Required)" %>
+										<%= f.text_field :name, class: "form-control", placeholder: "Name (required)" %>
 									</div><!-- /.col -->
 								</div><!-- /.row -->
 								<div class="row">
 									<div class="col-sm-6">
-										<%= f.text_field :email, class: "form-control", placeholder: "Email (Required, but never published)" %>
+										<%= f.text_field :email, class: "form-control", placeholder: "Email (required, but never published)" %>
 									</div><!-- /.col -->
 								</div><!-- /.row -->
 								<%= f.invisible_captcha :subtitle %>
 								<div class="row">
 									<div class="col-sm-12">
-										<%= f.text_area :body, class: "form-control", placeholder: "Enter your comment ..." %>
+										<%= f.text_area :body, class: "form-control", placeholder: "Comment (required)" %>
 									</div><!-- /.col -->
 								</div><!-- /.row -->
 								<%= f.submit 'Post Comment', class: "btn btn-default btn-submit comment-form-button" %>
@@ -91,7 +91,7 @@
 							<%= link_to category_path(:id => category.id) do %>
 							<ul class="circled">
 								<% if @categories.find_by_name(category.name).articles.count > 0 %>
-									<li><%= category.name %></a></li>
+									<li><%= category.name.titleize %></a></li>
 								<% end %>
 							</ul><!-- /.circled -->
 							<% end %>
