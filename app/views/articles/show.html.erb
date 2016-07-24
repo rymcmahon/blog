@@ -91,7 +91,7 @@
 							<%= link_to category_path(:id => category.id) do %>
 							<ul class="circled">
 								<% if @categories.find_by_name(category.name).articles.count > 0 %>
-								<li><%= category.name %></a></li>
+									<li><%= category.name %></a></li>
 								<% end %>
 							</ul><!-- /.circled -->
 							<% end %>
