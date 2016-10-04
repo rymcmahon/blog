@@ -76,6 +76,10 @@
   padding: 50px 60px;
 }
 
+.post-content *:last-child {
+  margin-bottom: 20px;
+}
+
 /*Targeting Firefox*/
 @-moz-document url-prefix() {
   #owl-main .caption h1.dark-bg span, #owl-main .caption p.dark-bg span {
