@@ -22790,3 +22790,19 @@ ul.arrowed li:before, ul.circled li:before {
     width: 100%;
   }
 }
+/* line 96, /Users/ryanmcmahon/Desktop/my_apps/blog/app/assets/stylesheets/application.css.scss */
+.portfolio-row {
+  margin-bottom: 40px;
+}
+
+/* line 100, /Users/ryanmcmahon/Desktop/my_apps/blog/app/assets/stylesheets/application.css.scss */
+.portfolio-image {
+  border: solid 1px #E6E9ED;
+}
+
+@media (max-width: 992px) {
+  /* line 105, /Users/ryanmcmahon/Desktop/my_apps/blog/app/assets/stylesheets/application.css.scss */
+  .portfolio-no-carousel {
+    margin-top: 20px;
+  }
+}

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   root 'pages#home'
-
+  get 'pages/portfolio'
+  get 'pages/crm'
+  get 'pages/ed_digital'
+  get 'pages/actualize'
   resources :articles do
   	resources :comments
   end

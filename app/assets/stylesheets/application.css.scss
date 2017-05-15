@@ -92,3 +92,17 @@
     width: 100%;
   }
 }
+
+.portfolio-row {
+  margin-bottom: 40px;
+}
+
+.portfolio-image {
+  border: solid 1px #E6E9ED;
+}
+
+@media(max-width:992px) {
+  .portfolio-no-carousel {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,49 @@
+<%= render 'portfolio_nav' %>
+  <main>
+    <section id="portfolio-post">
+      <div class="container inner-top-md">
+        <div class="row portfolio-row">
+          <div class="col-md-8">
+            <div id="owl-work" class="owl-carousel owl-inner-pagination owl-inner-nav owl-ui-md">
+              <div class="item">
+                <figure>
+	                <%= image_tag 'actualize-data-viz.png', class:'portfolio-image' %>
+                </figure>
+              </div>
+              <div class="item">
+                <figure>
+	                <%= image_tag 'data-viz-two.png', class:'portfolio-image' %>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 inner-left-sm">
+            <header>
+              <h2>Data Visualization Dashboard</h2>
+              <p class="text-small">I used Ruby on Rails and a JavaScript charting library to create a dashboard that shows admins critical data points so they can make informed marketing decisions. The charts and graphs update automatically every time an online application is submitted, ensuring leadership always has the most current data.</p>
+              <p class="text-small">The dashboard helps Actualize determine the financial health of each location and which advertising campaigns are yielding the best results, leading to more efficient use of funds.</p>
+              <ul class="item-details inner-top-xs outer-top-xs border-top">
+                <li class="date">March 2016</li>
+                <li class="categories">Ruby on Rails, JS Charting Library, HTML, CSS</li>
+                <li class="url"><a href="http://www.anyonecanlearntocode.com/">www.actualize.co</a></li>
+              </ul>
+            </header>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="dark-bg">
+  	<div class="footer-bottom">
+  		<div class="container inner">
+  			<p class="pull-left">© <%= Time.now.strftime("%Y") %> McMahon Web Development. All rights reserved.</p>
+  			<ul class="footer-menu pull-right">
+          <li><%= link_to "About", :controller => :pages, :action=> :home, :anchor => "about" %>
+          <li><%= link_to "Portfolio", pages_portfolio_path %></li>
+          <li><%= link_to "Services", :controller => :pages, :action=> :home, :anchor => "services" %></li>
+          <li><%= link_to "Contact", :controller => :pages, :action=> :home, :anchor => "contact" %></li>
+          <li><%= link_to "Blog", :controller => :articles, :action=> :index %></li>
+  			</ul>
+  		</div>
+  	</div>
+  </footer>
