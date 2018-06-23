@@ -1,6 +1,11 @@
 <% title strip_tags(markdown(@article.title)) %>
 <% meta_description strip_tags(markdown(@article.text.truncate(150, separator: ' '))) %>
 <%= render 'articles_nav' %>
+<% if @article.title == "## Rails Full-Text Search Form with AJAX" %>
+<div id="full-text-search-banner">
+	<h3>Checkout an updated version of this post: <a href="http://www.rymcmahon.com/articles/11" class="full-text-search-link">Rails Full-text Search Form with AJAX</a></h3>
+</div>
+<% end %>
 <main>
 	<section id="blog-post" class="light-bg">
 		<div class="container inner-top-sm inner-bottom classic-blog">
