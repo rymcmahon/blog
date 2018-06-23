@@ -1,3 +1,29 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#full-text-search-banner {
+  background-color: #29BA9C;
+
+}
+
+#full-text-search-banner h3 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 0;
+  padding: 20px 0;
+}
+
+.full-text-search-link {
+  text-decoration: underline;
+}
+
+.full-text-search-link:hover {
+  color: #516A84;
+}
+
+@media (max-width: 500px) {
+  #full-text-search-banner h3 {
+    font-size: 18px;
+  }
+}
