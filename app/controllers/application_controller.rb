@@ -3,4 +3,14 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   include SessionsHelper
+
+  before_action :redirect_if_old
+
+  protected
+
+  def redirect_if_old
+    if request.host == 'rymcmahon.com'
+      redirect_to "#{request.protocol}ryanmcmahon.org#{request.fullpath}", :status => :moved_permanently
+    end
+  end
 end
