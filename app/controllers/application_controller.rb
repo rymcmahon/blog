@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def redirect_if_old
-    if request.host == 'rymcmahon.com'
-      redirect_to "#{request.protocol}ryanmcmahon.org#{request.fullpath}", :status => :moved_permanently
+    if request.host == 'www.rymcmahon.com'
+      redirect_to "#{request.protocol}www.ryanmcmahon.org#{request.fullpath}", :status => :moved_permanently
     end
   end
 end
