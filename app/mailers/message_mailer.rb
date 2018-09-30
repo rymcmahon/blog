@@ -3,6 +3,6 @@ class MessageMailer < ApplicationMailer
 
   def message_notification(message)
     @message = message
-    mail(to: 'rymcmahon716@gmail.com', subject: 'New Message', reply_to: @message.email)
+    mail(to: 'ryan@ryanmcmahon.org', subject: 'New Message', reply_to: @message.email)
   end
 end

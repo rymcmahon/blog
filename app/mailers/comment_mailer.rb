@@ -5,6 +5,6 @@ class CommentMailer < ApplicationMailer
 	def comment_notification(comment, article)
 		@comment = comment
 		@article = article
-		mail(to: 'rymcmahon716@gmail.com', subject: 'Blog Comment Recorded')
+		mail(to: 'ryan@ryanmcmahon.org', subject: 'Blog Comment Recorded')
 	end
 end
