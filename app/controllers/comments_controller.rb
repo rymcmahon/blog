@@ -22,7 +22,7 @@ before_action :admin_user, only: [:index, :show, :edit, :destroy]
 			flash[:notice] = "Thanks for commenting! Your comment will appear after it is approved."
 			redirect_to article_path(@article)
 		else
-			flash[:alert] = "You must provide a name, valid email address, and a comment."
+			flash[:alert] = "You must provide a name, valid email address, and a comment in English."
 			redirect_to article_path(@article)
 		end
 	end
