@@ -65,26 +65,7 @@
 							</ol><!-- /.commentlist -->
 						</div><!-- /#comments -->
 						<div class="comment-form-wrapper">
-							<h2>Leave a Comment</h2>
-							<%= form_for ([@article, @article.comments.build]), :html => {:class => "forms"} do |f| %>
-								<div class="row">
-									<div class="col-sm-6">
-										<%= f.text_field :name, class: "form-control", placeholder: "Name (required)" %>
-									</div><!-- /.col -->
-								</div><!-- /.row -->
-								<div class="row">
-									<div class="col-sm-6">
-										<%= f.text_field :email, class: "form-control", placeholder: "Email (required, but never published)" %>
-									</div><!-- /.col -->
-								</div><!-- /.row -->
-								<%= f.invisible_captcha :subtitle %>
-								<div class="row">
-									<div class="col-sm-12">
-										<%= f.text_area :body, class: "form-control", placeholder: "Comment (required)" %>
-									</div><!-- /.col -->
-								</div><!-- /.row -->
-								<%= f.submit 'Post Comment', class: "btn btn-default btn-submit comment-form-button" %>
-							<% end %>
+
 							<div id="response"></div>
 						</div><!-- /.comment-form-wrapper -->
 					</div><!-- /.sidemeta -->
